@@ -39,7 +39,7 @@ public class AppInitializer implements WebApplicationInitializer {
 
     private AnnotationConfigWebApplicationContext getContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.scan("be.piyush.config");
+        context.scan("be.piyush");
         return context;
     }
 }

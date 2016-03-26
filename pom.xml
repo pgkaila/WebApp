@@ -21,11 +21,16 @@
     <properties>
         <spring.core.version>4.2.5.RELEASE</spring.core.version>
 
+        <spring.data.jpa.version>1.9.4.RELEASE</spring.data.jpa.version>
+        <hibernate-entitymanager.version>5.1.0.Final</hibernate-entitymanager.version>
+        <mysql-connector-java>5.1.6</mysql-connector-java>
+        <HikariCP.version>2.4.5</HikariCP.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <org.projectlombok.version>1.16.8</org.projectlombok.version>
-        <org.projectlombok.plugin.version>1.16.8.0</org.projectlombok.plugin.version>
         <log4j-core>2.5</log4j-core>
         <log4j-slf4j-impl>2.5</log4j-slf4j-impl>
+
+        <org.projectlombok.plugin.version>1.16.8.0</org.projectlombok.plugin.version>
     </properties>
 
     <dependencies>
