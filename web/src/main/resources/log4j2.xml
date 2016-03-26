@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="logdir">/var/log/piyush</Property>
+    </Properties>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} | %-5level | %logger{1} | %line | %m%n"/>
+        </Console>
+        <RollingFile name="LOGFILE" fileName="${logdir}/web.log" filePattern="${logdir}/web-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <pattern>%d{ISO8601} | %-5level | %logger{1} | %line | %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+
+    <Loggers>
+        <Root level="DEBUG" additivity="false">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="LOGFILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
