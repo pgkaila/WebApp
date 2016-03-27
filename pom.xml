@@ -31,6 +31,7 @@
         <org.projectlombok.version>1.16.8</org.projectlombok.version>
         <log4j-core>2.5</log4j-core>
         <log4j-slf4j-impl>2.5</log4j-slf4j-impl>
+        <liquibase.core.version>3.4.2</liquibase.core.version>
 
         <org.projectlombok.plugin.version>1.16.8.0</org.projectlombok.plugin.version>
     </properties>

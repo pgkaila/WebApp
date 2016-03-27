@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet author="piyush" id="1">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="INT(6)">
+                <constraints primaryKey="true" primaryKeyName="PK_USER_ID"/>
+            </column>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="role" type="VARCHAR(50)"/>
+        </createTable>
+        <sql>
+            INSERT INTO user VALUES (null, 'admin', 'password', 'ADMIN')
+        </sql>
+        <sql>
+            INSERT INTO user VALUES (null, 'user', 'password', 'USER')
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+

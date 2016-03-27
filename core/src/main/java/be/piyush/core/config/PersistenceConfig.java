@@ -3,6 +3,7 @@ package be.piyush.core.config;
 // @formatter:off
 
 import com.zaxxer.hikari.HikariDataSource;
+import liquibase.integration.spring.SpringLiquibase;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -101,5 +102,13 @@ public class PersistenceConfig {
                         environment.getProperty("hibernate.enable_lazy_load_no_trans"));
             }
         };
+    }
+
+    @Bean
+    public SpringLiquibase getLiquibase() {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setDataSource(dataSource());
+        liquibase.setChangeLog("classpath:db.changelog.xml");
+        return liquibase;
     }
 }
