@@ -19,8 +19,10 @@
     </developers>
 
     <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <spring.core.version>4.2.5.RELEASE</spring.core.version>
-
+        <spring.security.core.version>4.0.4.RELEASE</spring.security.core.version>
         <spring.data.jpa.version>1.9.4.RELEASE</spring.data.jpa.version>
         <hibernate-entitymanager.version>5.1.0.Final</hibernate-entitymanager.version>
         <mysql-connector-java>5.1.6</mysql-connector-java>
@@ -43,6 +45,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+
         <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -74,11 +77,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-bom</artifactId>
+                <version>${spring.security.core.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
@@ -94,4 +113,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

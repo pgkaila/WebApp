@@ -24,8 +24,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String sayHello() {
-        log.debug("Inside sayHello");
+    public String landingPage() {
         return "index";
+    }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String adminPage() {
+        log.debug("Inside admin page controller method");
+        return "admin";
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public String userPage() {
+        log.debug("Inside user page controller method");
+        return "user";
     }
 }
