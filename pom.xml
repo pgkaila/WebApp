@@ -10,6 +10,11 @@
 
     <packaging>pom</packaging>
 
+    <modules>
+        <module>core</module>
+        <module>web</module>
+    </modules>
+
     <developers>
         <developer>
             <name>Piyush</name>
@@ -92,6 +97,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
@@ -111,6 +123,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>
