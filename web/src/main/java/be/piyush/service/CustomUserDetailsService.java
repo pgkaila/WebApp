@@ -35,11 +35,12 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = null;
         try {
             user = userRepository.findByUsername(s);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+                authorities);
     }
 }

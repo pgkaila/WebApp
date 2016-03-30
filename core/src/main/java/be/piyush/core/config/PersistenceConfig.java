@@ -64,7 +64,7 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         log.debug("Initializing datasource");
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));

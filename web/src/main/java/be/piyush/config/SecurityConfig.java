@@ -27,12 +27,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Slf4j
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-    @Override protected void configure(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/j_spring_security_check", "/login", "/join", "/").permitAll()
@@ -44,13 +46,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .failureUrl("/login?error").permitAll()
                 .and()
                 .logout().logoutUrl("/logout").invalidateHttpSession(true);
+        // @formatter:on
     }
 
-    @Override public void configure(WebSecurity web) throws Exception {
+    @Override
+    public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resources/**");
     }
 
-    @Override protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserDetailsService);
     }
 }

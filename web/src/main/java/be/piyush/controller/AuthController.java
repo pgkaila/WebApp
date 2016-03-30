@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AuthController {
 
     @RequestMapping
-    public String loginPage(){
+    public String loginPage() {
         return "login";
     }
 }
