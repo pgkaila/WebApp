@@ -39,6 +39,7 @@
         <liquibase.core.version>3.4.2</liquibase.core.version>
 
         <org.projectlombok.plugin.version>1.16.8.0</org.projectlombok.plugin.version>
+        <maven.java.formatter.plugin.version>0.4</maven.java.formatter.plugin.version>
     </properties>
 
     <dependencies>
@@ -110,6 +111,21 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <version>${maven.java.formatter.plugin.version}</version>
+                <configuration>
+                    <configFile>${project.basedir}/../config/formatter.xml</configFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.projectlombok</groupId>
