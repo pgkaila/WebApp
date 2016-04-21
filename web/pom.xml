@@ -47,4 +47,28 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.plugin}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>de.jutzig</groupId>
+                <artifactId>github-release-plugin</artifactId>
+                <version>${maven.github.release.plugin.version}</version>
+                <configuration>
+                    <description>Simple monolith web application</description>
+                    <releaseName>1.0 Final</releaseName>
+                    <tag>${project.version}</tag>
+                    <artifact>${project.build.directory}/${project.build.finalName}.${project.packaging}</artifact>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
