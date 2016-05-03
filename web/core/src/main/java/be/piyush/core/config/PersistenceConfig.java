@@ -55,11 +55,6 @@ public class PersistenceConfig {
         log.debug("Initializing EntityManagerFactory.");
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource());
-        emf.setPackagesToScan(environment.getProperty("packages.to.scan"));
-        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        emf.setJpaProperties(hibernateProperties());
-        emf.setPersistenceUnitName(environment.getProperty("PU_NAME", "WEB_APP"));
-        log.debug("Finished initialization for EntityManagerFactory.");
         return emf;
     }
 

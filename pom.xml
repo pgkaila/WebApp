@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.3.RELEASE</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.piyush.webapp</groupId>
-    <artifactId>app</artifactId>
+    <artifactId>ecomapp</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>core</module>
         <module>web</module>
+        <module>product</module>
     </modules>
 
     <developers>
@@ -116,7 +121,7 @@
                 <artifactId>maven-java-formatter-plugin</artifactId>
                 <version>${maven.java.formatter.plugin.version}</version>
                 <configuration>
-                    <configFile>${project.basedir}/../config/formatter.xml</configFile>
+                    <configFile>${session.executionRootDirectory}/formatter.xml</configFile>
                 </configuration>
                 <executions>
                     <execution>
